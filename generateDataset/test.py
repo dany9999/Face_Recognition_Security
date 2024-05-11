@@ -39,5 +39,13 @@ def download_images(query, num_images=10, download_path="images"):
 
 # Example usage
 if __name__ == "__main__":
-    vip_name = input("Enter the VIP's name: ")
-    download_images(vip_name)
+
+    # Apro il file in modalità lettura
+    with open('labels.txt', 'r') as file:
+        # Leggo ogni riga del file
+        for line in file:
+            # Rimuovo eventuali spazi bianchi iniziali e finali e i caratteri di newline
+            vip_name = line.strip().replace(',', '')
+            
+            vip_name = input("Enter the VIP's name: ")
+            download_images(vip_name)
