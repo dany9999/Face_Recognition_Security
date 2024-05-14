@@ -12,7 +12,7 @@ def crop_faces_in_folder(input_folder, output_folder):
         input_image_path = os.path.join(input_folder, filename)
         
         # Controlla se il file è un'immagine supportata
-        if input_image_path.endswith(('.jpg', '.jpeg', '.png', '.gif')):
+        if input_image_path.endswith(('.jpg', '.jpeg')):
             # Esegui il crop delle facce per l'immagine attuale
             crop_faces(input_image_path, output_folder)
 
@@ -31,7 +31,7 @@ def crop_faces(image_path, output_folder):
         pil_image.save(os.path.join(output_folder, f"{os.path.splitext(os.path.basename(image_path))[0]}_face_{i}.jpg"))
 
 # Percorso della cartella di input
-input_folder = "prova_set"
+input_folder = "prova_2_set"
 
 # Cartella di output per le facce croppate
 output_folder = "cartella_di_output"
