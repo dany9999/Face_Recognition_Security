@@ -3,12 +3,12 @@ from PIL import Image
 import os
 
 def crop_faces_in_folder(input_folder, output_folder):
-    # Assicurati che la cartella di output esista, altrimenti creala
+    
     os.makedirs(output_folder, exist_ok=True)
     
-    # Itera attraverso ogni file nella cartella di input
+    
     for filename in os.listdir(input_folder):
-        # Costruisci il percorso completo del file di input
+        
         input_image_path = os.path.join(input_folder, filename)
         
         # Controlla se il file è un'immagine supportata
@@ -17,7 +17,7 @@ def crop_faces_in_folder(input_folder, output_folder):
             crop_faces(input_image_path, output_folder)
 
 def crop_faces(image_path, output_folder):
-    # Carica l'immagine
+  
     image = face_recognition.load_image_file(image_path)
 
     # Trova i volti nell'immagine
@@ -31,7 +31,7 @@ def crop_faces(image_path, output_folder):
         pil_image.save(os.path.join(output_folder, f"{os.path.splitext(os.path.basename(image_path))[0]}_face_{i}.jpg"))
 
 # Percorso della cartella di input
-input_folder = "prova_2_set"
+input_folder = "prova"
 
 # Cartella di output per le facce croppate
 output_folder = "cartella_di_output"
