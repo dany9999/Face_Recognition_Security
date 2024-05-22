@@ -7,6 +7,7 @@ import tensorflow as tf
 from io import BytesIO
 
 #################### NN2 load image ######################################################################
+
 def load_image_NN2(filename):
     # Carica l'immagine
     img = Image.open(filename)
@@ -49,9 +50,7 @@ def add_padding(image, target_size):
     
     return padded_image
 
-
 #################### NN1 load image ##################################################
-
 
 def load_image_NN1(filename):
     img = Image.open(filename)
@@ -59,9 +58,6 @@ def load_image_NN1(filename):
     tns = transforms.ToTensor()(rsz)
     tns = tns.unsqueeze(0)
     return tns
-
-
-
 
 #################### LABELS ############################################################
 
