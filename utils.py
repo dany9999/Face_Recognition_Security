@@ -4,7 +4,6 @@ import torch
 from PIL import ImageOps
 from torchvision import transforms
 import tensorflow as tf
-from io import BytesIO
 
 #################### NN2 load image ######################################################################
 
