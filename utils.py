@@ -55,6 +55,30 @@ def add_padding(image, target_size):
     return padded_image
 
 
+def load_test_image_NN2(test_images_adv):
+    # Prepara le immagini per la visualizzazione
+    # Rimuovi la dimensione batch extra e converti nel formato channels-last
+    test_images_adv = np.squeeze(test_images_adv, axis=0)
+    test_images_adv = np.transpose(test_images_adv, (1, 2, 0))
+    if test_images_adv.dtype != np.uint8:
+        test_images_adv = (test_images_adv * 255).astype(np.uint8)
+
+
+    # Carica l'immagine
+    img = Image.fromarray(test_images_adv)
+
+    
+    img = add_padding(img, (224,224))
+    # Converti l'immagine in un array NumPy
+    img = np.array(img)
+
+    # Applica le trasformazioni
+    test_images_NN2 = transform(img)
+    test_images_NN2 = test_images_NN2.unsqueeze(0)  # Aggiungi una dimensione batch
+
+    return test_images_NN2
+
+
 
 # loadd weights
 def load_state_dict(model, fname):
