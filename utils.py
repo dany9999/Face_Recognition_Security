@@ -104,10 +104,11 @@ def load_state_dict(model, fname):
 
 #################### NN1 load image ##################################################
 
-def load_image_NN1(filename):
+def load_image_NN1(filename,device):
     img = Image.open(filename)
     rsz = img.resize((160, 160))
     tns = transforms.ToTensor()(rsz)
+    tns.to(device)
     tns = tns.unsqueeze(0)
     return tns
 
