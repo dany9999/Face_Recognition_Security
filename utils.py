@@ -4,8 +4,13 @@ import torch
 from PIL import ImageOps
 from torchvision import transforms
 import tensorflow as tf
+import pickle
+import torch
 
-#################### NN2 load image ######################################################################
+#################### NN2  ######################################################################
+
+
+# load image
 
 def load_image_NN2(filename):
     # Carica l'immagine
@@ -48,6 +53,30 @@ def add_padding(image, target_size):
     padded_image = ImageOps.expand(image, padding, fill='black')
     
     return padded_image
+
+
+
+# loadd weights
+def load_state_dict(model, fname):
+    """
+
+    Arguments:
+        model: model
+        fname: file name of parameters converted from a Caffe model, assuming the file format is Pickle.
+    """
+    with open(fname, 'rb') as f:
+        weights = pickle.load(f, encoding='latin1')
+
+    own_state = model.state_dict()
+    for name, param in weights.items():
+        if name in own_state:
+            try:
+                own_state[name].copy_(torch.from_numpy(param))
+            except Exception:
+                raise RuntimeError('While copying the parameter named {}, whose dimensions in the model are {} and whose '\
+                                   'dimensions in the checkpoint are {}.'.format(name, own_state[name].size(), param.size()))
+        else:
+            raise KeyError('unexpected key "{}" in state_dict'.format(name))
 
 #################### NN1 load image ##################################################
 
