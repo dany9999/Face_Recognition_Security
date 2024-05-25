@@ -91,23 +91,16 @@ def load_test_image_NN2_preprocessed(test_images_adv):
 
     # Carica l'immagine
     img = Image.fromarray(test_images_adv)
-    img = img.filter(ImageFilter.GaussianBlur(2))
-    img = add_padding(img, (224,224))
+    img = img.filter(ImageFilter.GaussianBlur(0.5))
+    img = ImageOps.flip(img)
+    img = img.resize((224,224))
     # Converti l'immagine in un array NumPy
     img = np.array(img)
 
     # Applica le trasformazioni
     test_images_NN2 = transform(img)
     test_images_NN2 = test_images_NN2.unsqueeze(0)  # Aggiungi una dimensione batch
-
     return test_images_NN2
-
-def preproc(image):
-    image = np.transpose(image, (1, 2, 0))
-    print("Applicando Bly")
-    image = cv2.blur(image,(4,4))
-    #image.save("output_image.jpg", format="JPEG", quality=85)
-    return image
 
 # loadd weights
 def load_state_dict(model, fname):
