@@ -92,8 +92,8 @@ def load_test_image_NN2_preprocessed(test_images_adv):
 
     # Carica l'immagine
     img = Image.fromarray(test_images_adv)
-    img = img.filter(ImageFilter.GaussianBlur(0.5))
-    img = ImageOps.flip(img)
+    img = img.filter(ImageFilter.GaussianBlur(2))
+    img = img.transpose(Image.FLIP_LEFT_RIGHT)
     img = img.resize((224,224))
     # Converti l'immagine in un array NumPy
     img = np.array(img)
