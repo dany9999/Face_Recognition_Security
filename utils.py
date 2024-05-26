@@ -1,12 +1,14 @@
 from PIL import Image
 import numpy as np
 import torch
-from PIL import ImageOps
+from PIL import Image, ImageOps
+from PIL import ImageFilter
 from torchvision import transforms
 import tensorflow as tf
 import pickle
 import torch
-
+from io import BytesIO
+import cv2
 #################### NN2  ######################################################################
 
 
@@ -75,10 +77,30 @@ def load_test_image_NN2(test_images_adv):
     # Applica le trasformazioni
     test_images_NN2 = transform(img)
     test_images_NN2 = test_images_NN2.unsqueeze(0)  # Aggiungi una dimensione batch
-
+    
     return test_images_NN2
 
+def load_test_image_NN2_preprocessed(test_images_adv):
+    # Prepara le immagini per la visualizzazione
+    # Rimuovi la dimensione batch extra e converti nel formato channels-last
+    test_images_adv = np.squeeze(test_images_adv, axis=0)
+    test_images_adv = np.transpose(test_images_adv, (1, 2, 0))
+    if test_images_adv.dtype != np.uint8:
+        test_images_adv = (test_images_adv * 255).astype(np.uint8)
 
+
+    # Carica l'immagine
+    img = Image.fromarray(test_images_adv)
+    img = img.filter(ImageFilter.GaussianBlur(0.5))
+    img = ImageOps.flip(img)
+    img = img.resize((224,224))
+    # Converti l'immagine in un array NumPy
+    img = np.array(img)
+
+    # Applica le trasformazioni
+    test_images_NN2 = transform(img)
+    test_images_NN2 = test_images_NN2.unsqueeze(0)  # Aggiungi una dimensione batch
+    return test_images_NN2
 
 # loadd weights
 def load_state_dict(model, fname):
