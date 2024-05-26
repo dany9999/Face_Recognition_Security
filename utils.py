@@ -8,7 +8,7 @@ import tensorflow as tf
 import pickle
 import torch
 from io import BytesIO
-import cv2
+#import cv2
 #################### NN2  ######################################################################
 mean_bgr = np.array([91.4953, 103.8827, 131.0912])
 
