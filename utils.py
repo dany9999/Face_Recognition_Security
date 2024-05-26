@@ -10,7 +10,7 @@ import torch
 from io import BytesIO
 import cv2
 #################### NN2  ######################################################################
-
+mean_bgr = np.array([91.4953, 103.8827, 131.0912])
 
 # load image
 
@@ -36,6 +36,7 @@ def load_image_NN2(filename):
 def transform(img):
         img = img[:, :, ::-1]  # RGB -> BGR
         img = img.astype(np.float32)
+        img -= mean_bgr
         img = img.transpose(2, 0, 1)  # C x H x W
         img = torch.from_numpy(img).float()
         return img
