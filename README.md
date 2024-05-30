@@ -28,6 +28,37 @@ Assicurati di avere installato i seguenti pacchetti Python:
 - jupyter
 
 Puoi installarli usando pip:
-
-```bash
+ ```bash
 pip install numpy tensorflow keras matplotlib jupyter
+```
+
+## Istruzione per l'Esecuzione 
+### Preparazione del Test Set Cropped
+Prima di eseguire qualsiasi attacco, è necessario preparare le immagini croppate del set di test. Esegui lo script face_crop.py:
+
+ ```bash
+python face_crop.py
+```
+Questo script processerà le immagini nella cartella test_set/ e salverà le versioni croppate nella cartella test_set_cropped/.
+
+### Esecuzione attacchi 
+Per eseguire un attacco, apri il notebook corrispondente e avvialo. Ogni notebook eseguirà l'attacco specificato sulle immagini croppate del set di test.
+
+  Attacco DeepFool: apri DeepFool.ipynb e esegui tutte le celle.
+  Attacco Carlini-Wagner: apri CarliniWagner.ipynb e esegui tutte le celle.
+  Attacco PGD mirato: apri PGD_targeted.ipynb e esegui tutte le celle.
+  Attacco PGD non mirato: apri PGD_untargeted.ipynb e esegui tutte le celle.
+  
+### Test delle Reti Neurali sul Test Set Clean
+Per testare le reti neurali NN1 e NN2 sul set di test pulito, apri i rispettivi notebook e avviali.
+
+  Test di NN1 (Inception ResNet v1): apri test_clean_NN1.ipynb e esegui tutte le celle.
+  Test di NN2 (ResNet50): apri test_clean_NN2.ipynb e esegui tutte le celle.
+
+## Dettagli Tecnici
+NN1 (Inception ResNet v1): Definita nello script inception.py.
+NN2 (ResNet50): Definita nello script resnet.py.
+Funzionalità Utili: Contenute nello script utils.py, che viene richiamato nei vari notebook per eseguire operazioni comuni come la pre-elaborazione delle immagini e la valutazione delle prestazioni delle reti.
+
+## Note Finali
+Assicurati di eseguire tutti gli script e i notebook nell'ordine corretto per garantire che i dati siano processati correttamente e che i risultati degli attacchi siano validi. Per qualsiasi dubbio o problema, verifica la corretta configurazione dell'ambiente di sviluppo e la presenza di tutti i file necessari nella directory del progetto.
