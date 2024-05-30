@@ -14,14 +14,22 @@ mean_bgr = np.array([91.4953, 103.8827, 131.0912])
 
 # load image
 
-def load_image_NN2(filename):
+def load_image_NN2_clean(filename, mode = "padding" ):
     # Carica l'immagine
     img = Image.open(filename)
 
-    # Ridimensiona l'immagine a 224x224
-    img = img.resize((160, 160))
 
-    img = add_padding(img, (224,224))
+    if mode == "padding":
+        # Ridimensiona l'immagine a 224x224
+        img = img.resize((160, 160))
+
+        img = add_padding(img, (224,224))
+    
+    if mode == "preprocessing":
+        img = img.filter(ImageFilter.GaussianBlur(2))
+        img = img.transpose(Image.FLIP_LEFT_RIGHT)
+        img = img.resize((224,224))
+    
     # Converti l'immagine in un array NumPy
     img = np.array(img)
 
@@ -81,6 +89,7 @@ def load_test_image_NN2(test_images_adv):
     
     return test_images_NN2
 
+
 def load_test_image_NN2_preprocessed(test_images_adv):
     # Prepara le immagini per la visualizzazione
     # Rimuovi la dimensione batch extra e converti nel formato channels-last
@@ -102,6 +111,7 @@ def load_test_image_NN2_preprocessed(test_images_adv):
     test_images_NN2 = transform(img)
     test_images_NN2 = test_images_NN2.unsqueeze(0)  # Aggiungi una dimensione batch
     return test_images_NN2
+
 
 # loadd weights
 def load_state_dict(model, fname):
