@@ -1,4 +1,4 @@
-# Riconoscimento Facciale con Attacchi di Sicurezza
+# Face Recognition Security
 
 Questo progetto implementa un sistema di riconoscimento facciale e include vari attacchi di sicurezza per testare la robustezza del sistema. Di seguito sono riportate le istruzioni per eseguire il progetto.
 
