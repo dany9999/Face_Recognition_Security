@@ -20,9 +20,7 @@ Questo progetto implementa un sistema di riconoscimento facciale e include vari 
 Assicurati di avere installato i seguenti pacchetti Python:
 
 - numpy
-- tensorflow
 - keras
-- matplotlib
 - jupyter
 
 Puoi installarli usando pip:
@@ -37,7 +35,7 @@ Prima di eseguire qualsiasi attacco, è necessario avere installato i seguenti p
  ```bash
 pip install facenet-pytorch
 pip install Pillow
-pip install -q tensorflow==2.0.0
+pip install -q tensorflow
 pip install adversarial-robustness-toolbox[all]
 pip install matplotlib
 ```
