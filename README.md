@@ -31,7 +31,7 @@ pip install numpy tensorflow keras matplotlib jupyter
 ```
 
 ## Istruzione per l'Esecuzione 
-### Preparazione del Test Set Cropped
+### Preparazione per l'esecuzione dei notebook
 Prima di eseguire qualsiasi attacco, è necessario avere installato i seguenti pacchetti. Puoi installarli usando pip:
 
  ```bash
@@ -58,9 +58,9 @@ Per testare le reti neurali NN1 e NN2 sul set di test pulito, apri i rispettivi 
 - `Test di NN2 (ResNet50)`: apri test_clean_NN2.ipynb per eseguire un test clean sulla rete NN2.
 
 ## Dettagli Tecnici
-- `NN1 (Inception ResNet v1)`: Definita nello script inception.py.
-- `NN2 (ResNet50)`: Definita nello script resnet.py.
-- `Funzionalità Utili`: Contenute nello script utils.py, che viene richiamato nei vari notebook per eseguire operazioni comuni come la pre-elaborazione delle immagini.
+- `NN1 (Inception ResNet v1)`: definita nello script inception.py.
+- `NN2 (ResNet50)`: definita nello script RESNET.py.
+- `Funzionalità Utili`: contenute nello script utils.py, che viene richiamato nei vari notebook per eseguire operazioni comuni come la pre-elaborazione delle immagini.
 
 ## Note Finali
 Assicurati di eseguire tutti gli script e i notebook nell'ordine corretto per garantire che i dati siano processati correttamente e che i risultati degli attacchi siano validi. Per qualsiasi dubbio o problema, verifica la corretta configurazione dell'ambiente di sviluppo e la presenza di tutti i file necessari nella directory del progetto.
