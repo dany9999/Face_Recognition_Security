@@ -27,7 +27,7 @@ Assicurati di avere installato i seguenti pacchetti Python:
 
 Puoi installarli usando pip:
  ```bash
-pip install numpy tensorflow keras matplotlib jupyter
+pip install numpy keras jupyter
 ```
 
 ## Istruzione per l'Esecuzione 
@@ -42,10 +42,10 @@ pip install adversarial-robustness-toolbox[all]
 pip install matplotlib
 ```
 ### Nota 
-Se si ha intenzione di eseguire i notebook usando la GPU, non installare il pacchetto facenet-pytorch. 
+Se si ha intenzione di eseguire i notebook usando la GPU, si consiglia di non installare il pacchetto facenet-pytorch soprattutto in ambiente Windows. 
 
 ### Esecuzione attacchi 
-Per eseguire un attacco, apri il notebook corrispondente e avvialo. Ogni notebook eseguirà l'attacco specificato sulle immagini croppate del set di test.
+Per eseguire un attacco, apri il notebook corrispondente e avvialo. Ogni notebook eseguirà l'attacco specificato sulle immagini ritagliate del test set.
 
 - `Attacco DeepFool`: apri DeepFoolAttack.ipynb per eseguire l'attacco DeepFool.
 - `Attacco Carlini-Wagner`: apri carlini_wagner.ipynb per eseguire l'attacco Carlini-Wagner untargeted e targeted.
@@ -63,4 +63,4 @@ Per testare le reti neurali NN1 e NN2 sul set di test pulito, apri i rispettivi 
 - `Funzionalità Utili`: contenute nello script utils.py, che viene richiamato nei vari notebook per eseguire operazioni comuni come la pre-elaborazione delle immagini.
 
 ## Note Finali
-Assicurati di eseguire tutti gli script e i notebook nell'ordine corretto per garantire che i dati siano processati correttamente e che i risultati degli attacchi siano validi. Per qualsiasi dubbio o problema, verifica la corretta configurazione dell'ambiente di sviluppo e la presenza di tutti i file necessari nella directory del progetto.
+Per qualsiasi dubbio o problema, verifica la corretta configurazione dell'ambiente di sviluppo e la presenza di tutti i file necessari nella directory del progetto.
