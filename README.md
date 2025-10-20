@@ -1,6 +1,22 @@
 # Face Recognition Security
 
-This project implements a facial recognition system and includes various security attacks to test the robustness of the system. Below are the instructions for running the project.
+This project, developed as part of the **Artificial Intelligence for Cybersecurity** course at the **University of Salerno**, focuses on evaluating the robustness and security of deep learning–based **face recognition systems** when exposed to adversarial attacks.
+
+Facial recognition is one of the most widely adopted biometric technologies worldwide — used in smartphones, surveillance, and access control systems.  
+However, recent studies have shown that even highly accurate deep neural networks can be **vulnerable to adversarial perturbations**: small, imperceptible changes in input images that can cause misclassification and compromise system integrity.
+
+The goal of this project is to:
+- Assess the **vulnerability of face recognition models** (ResNet50 and Inception-ResNet v1 pre-trained on VGGFace2) to adversarial examples.  
+- Evaluate different **adversarial attack techniques** such as:
+  - Projected Gradient Descent (PGD)  
+  - DeepFool  
+  - Carlini–Wagner (CW)  
+- Analyze **attack transferability** between neural networks.  
+- Implement and test **defense mechanisms** (Gaussian Blur, image flipping, resizing) to improve model robustness.
+
+Experiments were carried out using the **Adversarial Robustness Toolbox (ART)** and Python-based deep learning frameworks such as **TensorFlow** and **Keras**.  
+The study provides insights into how adversarial attacks affect the performance of facial recognition systems and explores potential mitigation strategies to enhance cybersecurity in AI-based biometric authentication.
+
 
 ## Project Structure
 
